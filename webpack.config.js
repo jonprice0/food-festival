@@ -10,9 +10,9 @@ module.exports = {
         tickets: './assets/js/schedule.js'
     },
     output: {
-        filename: "[name].bundle.js",
-        path: __dirname + "/dist"
-    },
+        path: path.join(__dirname + "/dist"),
+        filename: "[name].bundle.js"
+      },
     module: {
         rules: [
             {
@@ -25,7 +25,7 @@ module.exports = {
                             name (file) {
                                 return "[path][name].[ext]"
                             },
-                            publicPath: function(url) {
+                            publicPath(url) {
                                 return url.replace("../", "/assets/")
                             }
                         }
@@ -47,5 +47,4 @@ module.exports = {
         })
     ],
     mode: 'development'
-
 };
